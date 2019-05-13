@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\build\\intermediates\\res\\merged\\debug\\xml\\leak_canary_file_paths.xml",
+        "source": "C:\\Users\\wsg\\.android\\build-cache\\a0231c8574ea9b41008e326114a23120fd9ea4b2\\output\\res\\xml\\leak_canary_file_paths.xml"
+    },
+    {
+        "merged": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\build\\intermediates\\res\\merged\\debug\\xml\\file_paths.xml",
+        "source": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\src\\main\\res\\xml\\file_paths.xml"
+    }
+]

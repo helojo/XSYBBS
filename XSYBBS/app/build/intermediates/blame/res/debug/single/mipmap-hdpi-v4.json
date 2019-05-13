@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\wsg_logo.webp",
+        "source": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\src\\main\\res\\mipmap-hdpi\\wsg_logo.webp"
+    },
+    {
+        "merged": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\third_login_weibo.webp",
+        "source": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\src\\main\\res\\mipmap-hdpi\\third_login_weibo.webp"
+    },
+    {
+        "merged": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\third_login_wechart.webp",
+        "source": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\src\\main\\res\\mipmap-hdpi\\third_login_wechart.webp"
+    },
+    {
+        "merged": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\third_login_qq.webp",
+        "source": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\src\\main\\res\\mipmap-hdpi\\third_login_qq.webp"
+    },
+    {
+        "merged": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\leak_canary_icon.png",
+        "source": "C:\\Users\\wsg\\.android\\build-cache\\a0231c8574ea9b41008e326114a23120fd9ea4b2\\output\\res\\mipmap-hdpi-v4\\leak_canary_icon.png"
+    },
+    {
+        "merged": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi-v4\\splash_bg.webp",
+        "source": "D:\\Work\\Project\\XSYBBS\\XSYBBS\\app\\src\\main\\res\\mipmap-hdpi\\splash_bg.webp"
+    }
+]

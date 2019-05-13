@@ -1,3 +1,24 @@
 <resources>
-    <string name="app_name">Kotlin</string>
+    <string name="app_name">石大论坛</string>
+    <string name="login">登录</string>
+    <string name="sure">确认</string>
+    <string name="cancel">取消</string>
+    <string name="register">注册</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="third_login">第三方登录:</string>
+    <string name="user_name">用户名</string>
+    <string name="password">密码</string>
+    <string name="tourist_login">游客浏览</string>
+    <string name="text_age">年龄</string>
+    <string name="text_desc">个性签名</string>
+    <string name="text_boy">男</string>
+    <string name="text_girl_f">女</string>
+    <string name="text_email">电子邮件</string>
+    <string name="make_sure_email">注意：请认真填写电子邮件，方便忘记密码后，密码找回</string>
+    <string name="sex">性别：</string>
+    <string name="text_now_password">旧密码</string>
+    <string name="text_new_password">新密码</string>
+    <string name="text_password_again">确认密码</string>
+    <string name="text_editor_password">修改密码</string>
+    <string name="text_forget_password">忘记密码</string>
 </resources>

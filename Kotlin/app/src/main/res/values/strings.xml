@@ -21,4 +21,5 @@
     <string name="text_password_again">确认密码</string>
     <string name="text_editor_password">修改密码</string>
     <string name="text_forget_password">忘记密码</string>
+    <string name="make_sure_password">确认密码</string>
 </resources>

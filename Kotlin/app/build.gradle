@@ -30,4 +30,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //bmob
+    implementation 'cn.bmob.android:bmob-sdk:3.6.1'
+    //rxjava 1.x 线程切换
+    implementation 'io.reactivex:rxjava:1.0.14'
+    implementation 'io.reactivex:rxandroid:1.0.1'
+    //圆形头像
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }

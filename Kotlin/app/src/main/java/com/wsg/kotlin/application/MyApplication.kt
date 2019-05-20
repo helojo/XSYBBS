@@ -1,6 +1,8 @@
 package com.wsg.kotlin.application
 
 import android.app.Application
+import cn.bmob.v3.Bmob
+import com.wsg.kotlin.Util.Constant
 
 
 /*
@@ -16,5 +18,6 @@ class MyApplication :Application(){
     
     override fun onCreate() {
         super.onCreate()
+        Bmob.initialize(this,Constant.bmobId)
     }
 }

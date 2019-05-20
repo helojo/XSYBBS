@@ -1,5 +1,7 @@
 package com.wsg.kotlin.bean
 
+import cn.bmob.v3.BmobUser
+
 
 /*
  *  项目名:  Kotlin
@@ -10,4 +12,4 @@ package com.wsg.kotlin.bean
  *  描述:     data 用户实体类
  */
  
-data class User(val name:String,val passWord:String)
+class User :BmobUser()

@@ -12,4 +12,4 @@ import cn.bmob.v3.BmobUser
  *  描述:     data 用户实体类
  */
  
-class User :BmobUser()
+data class User(var age : Int = 20) :BmobUser()

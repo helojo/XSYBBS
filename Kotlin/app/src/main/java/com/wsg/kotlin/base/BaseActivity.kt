@@ -1,6 +1,7 @@
 package com.wsg.kotlin.base
 
 import android.os.Bundle
+import android.os.Message
 import android.support.v7.app.AppCompatActivity
 
 
@@ -17,6 +18,11 @@ open class BaseActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    //处理异步消息
+    open fun msgManagement(message: Int){
+
     }
 }
  

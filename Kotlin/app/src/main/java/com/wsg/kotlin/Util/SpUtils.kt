@@ -16,12 +16,18 @@ class SpUtils {
     companion object {
         val name = "config"
 
+        val isLogin = "isLogin"
+        val userName = "userName"
+        val passWord = "passWord"
+
+
+
         fun putString(ctx : Context,key : String,value : String){
             val sp = ctx.getSharedPreferences(name,Context.MODE_PRIVATE);
             sp.edit().putString(key,value).commit()
         }
 
-        fun getString(ctx : Context,key :String,defValue : String):String{
+        fun getString(ctx : Context,key :String,defValue : String):String?{
             val sp = ctx.getSharedPreferences(name,Context.MODE_PRIVATE)
             return sp.getString(key,defValue)
         }

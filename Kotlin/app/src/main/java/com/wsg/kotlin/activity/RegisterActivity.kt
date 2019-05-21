@@ -7,9 +7,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import cn.bmob.v3.exception.BmobException
+import cn.bmob.v3.listener.SaveListener
 import com.wsg.kotlin.R
+import com.wsg.kotlin.Util.Constant
+import com.wsg.kotlin.Util.sendMessage
+import com.wsg.kotlin.Util.toast
 import com.wsg.kotlin.base.BaseActivity
 import com.wsg.kotlin.bean.User
+import org.jetbrains.anko.doAsync
 
 
 /*
@@ -28,6 +34,7 @@ class RegisterActivity : BaseActivity(){
     lateinit var passwordAgain : EditText
     lateinit var emile : EditText
     lateinit var button :Button
+    lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,21 +54,51 @@ class RegisterActivity : BaseActivity(){
 
     //注册用户
     private fun registerUser() {
-        val userName = name.text
-        val pass = password.text
-        val passAgin = passwordAgain.text
-        val m = emile.text
+        val userName = name.text.toString()
+        val pass = password.text.toString()
+        val passAgin = passwordAgain.text.toString()
+        val m = emile.text.toString()
 
 
         if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(passAgin) || TextUtils.isEmpty(m)){
-            Toast.makeText(this,"输入框不能为空，请检查",Toast.LENGTH_SHORT)
+            toast(getString(R.string.textnotnull))
         }else{
             //kotlin == 判断内容是否相等 === 判断引用是否相等
             if(pass != passAgin){
-                Toast.makeText(this,"两次密码输入不一致，请检查",Toast.LENGTH_SHORT)
+                toast(getString(R.string.passagainfail))
             }else{
                 //开始注册用户
+                user = User()
+                user.username = userName
+                user.setPassword(pass)
+                user.email = m
+                doAsync {
+                    user.signUp(object :SaveListener<User>(){
+                        override fun done(p0: User?, p1: BmobException?) {
+                            if(p1 == null){
+                                sendMessage(Constant.registerSucess)
+                            }else{
+                                sendMessage(Constant.registerSucess)
+                            }
+                        }
+                    })
+                }
+
             }
         }
     }
+
+    override fun msgManagement(message: Int) {
+        super.msgManagement(message)
+        when(message){
+            Constant.registerSucess ->{
+                toast(getString(R.string.registersuccess))
+                finish()
+            }
+            Constant.registerFail ->{
+                toast(getString(R.string.registerfail))
+            }
+        }
+    }
+
 }

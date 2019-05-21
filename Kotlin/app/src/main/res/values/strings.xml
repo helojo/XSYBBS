@@ -22,4 +22,9 @@
     <string name="text_editor_password">修改密码</string>
     <string name="text_forget_password">忘记密码</string>
     <string name="make_sure_password">确认密码</string>
+    <string name="textnotnull">输入框不能为空，请检查</string>
+    <string name="passagainfail">两次密码输入不一致，请检查</string>
+    <string name="registerfail">注册失败，请检查网络</string>
+    <string name="registersuccess">注册成功，请登录</string>
+    <string name="loginfail">登录失败，请检查网络</string>
 </resources>

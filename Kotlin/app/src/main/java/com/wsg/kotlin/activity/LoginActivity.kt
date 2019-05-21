@@ -2,11 +2,20 @@ package com.wsg.kotlin.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import cn.bmob.v3.exception.BmobException
+import cn.bmob.v3.listener.SaveListener
+import com.wsg.kotlin.MainActivity
 import com.wsg.kotlin.R
+import com.wsg.kotlin.Util.Constant
+import com.wsg.kotlin.Util.SpUtils
+import com.wsg.kotlin.Util.sendMessage
+import com.wsg.kotlin.Util.toast
 import com.wsg.kotlin.base.BaseActivity
+import com.wsg.kotlin.bean.User
 
 
 /*
@@ -24,6 +33,7 @@ class LoginActivity : BaseActivity() {
     lateinit var etPassword : EditText
     lateinit var btLogin : Button
     lateinit var btRegister : Button
+    lateinit var user: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,10 +53,51 @@ class LoginActivity : BaseActivity() {
 
     //去注册
     private fun toRegister() {
+        val intent = Intent(this,RegisterActivity::class.java)
+        startActivity(intent)
     }
 
     //登录逻辑
     private fun toLogin() {
+        val name = etName.text.toString()
+        val pass = etPassword.text.toString()
+
+        if(TextUtils.isEmpty(name) || TextUtils.isEmpty(pass)){
+            toast(getString(R.string.textnotnull))
+        }else {
+            user = User()
+            user.username= name
+            user.setPassword(pass)
+
+            user.login(object :SaveListener<User>(){
+                override fun done(p0: User?, p1: BmobException?) {
+                    if(p1 == null){
+                        SpUtils.putString(applicationContext,SpUtils.name,name)
+                        SpUtils.putString(applicationContext,SpUtils.passWord,pass)
+                        sendMessage(Constant.loginSuccess)
+                    }else{
+                        sendMessage(Constant.loginFail)
+                    }
+                }
+
+            })
+
+        }
+
+    }
+
+    override fun msgManagement(message: Int) {
+        super.msgManagement(message)
+        when(message){
+            Constant.loginSuccess ->{
+                val intent = Intent(this,MainActivity ::class.java)
+                startActivity(intent)
+                finish()
+            }
+            Constant.loginFail ->{
+                toast(getString(R.string.loginfail))
+            }
+        }
     }
 
 }

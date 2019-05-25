@@ -27,4 +27,44 @@
     <string name="registerfail">注册失败，请检查网络</string>
     <string name="registersuccess">注册成功，请登录</string>
     <string name="loginfail">登录失败，请检查网络</string>
+    <string name="home_image_view_text">校园贴吧</string>
+    <string name="mine_center">个人中心</string>
+    <string name="my_message">我的消息</string>
+    <string name="my_friend">我的好友</string>
+    <string name="back_ok">确认反馈</string>
+    <string name="back_t">意见反馈</string>
+    <string name="persional_detail">个人信息</string>
+    <string name="add_friend">加为好友</string>
+    <string name="send_message">发送消息</string>
+    <string name="text_version">目前版本</string>
+    <string name="text_update">检查更新</string>
+    <string name="tex_about">关于</string>
+    <string name="about">作者：蓝莲花</string>
+    <string name="author_qq">QQ：1305676305</string>
+    <string name="text_tost_empty">输入框不能为空</string>
+    <string name="text_two_input_not_consistent">两次密码不一致</string>
+    <string name="text_nothing">这个人很懒，什么都没留下</string>
+    <string name="text_now_login">正在登录</string>
+    <string name="text_now_register">正在注册</string>
+    <string name="text_mynote">我的帖子</string>
+    <string name="text_my_message">我的消息</string>
+    <string name="text_choose_profile">选择头像</string>
+    <string name="text_email_send_no">邮箱发送失败,请检查邮件输入是否正确或者该邮件是否注册过此应用</string>
+    <string name="reset_successfully">重置密码成功,请重新登录</string>
+    <string name="reset_failed">重置密码失败，请检查旧密码或者是否注册过</string>
+    <string name="text_unknown">未知</string>
+    <string name="edit_information">编辑资料</string>
+    <string name="text_editor_success">修改成功</string>
+    <string name="text_editor_failure">修改失败</string>
+    <string name="test_chat">测试聊天</string>
+    <string name="serch">搜索</string>
+    <string name="text_add_note">发帖</string>
+    <string name="test_search_note">搜索帖子</string>
+    <string name="please_choose_note_type">请选择帖子类型：</string>
+    <string name="text_modify_my_note">修改帖子</string>
+    <string name="test_note_detail">帖子详情</string>
+    <string name="text_my_zan">我收到的赞</string>
+    <string name="text_my_me">我收到的评论</string>
+
+
 </resources>

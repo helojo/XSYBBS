@@ -35,7 +35,8 @@
         <activity android:name=".MainActivity" android:launchMode="singleTask"></activity>
         <activity android:name=".activity.RegisterActivity" android:label="@string/register"></activity>
         <activity android:name=".activity.LoginActivity" android:label="@string/login"></activity>
-
+        <activity android:name=".activity.AddNoteActivity" android:label="@string/text_add_note"></activity>
+        <activity android:name=".activity.SearchNoteActivity" android:label="@string/serch"></activity>
     </application>
 
 </manifest>

@@ -16,6 +16,8 @@ import com.wsg.kotlin.Util.sendMessage
 import com.wsg.kotlin.Util.toast
 import com.wsg.kotlin.base.BaseActivity
 import com.wsg.kotlin.bean.User
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.intentFor
 
 
 /*
@@ -53,8 +55,7 @@ class LoginActivity : BaseActivity() {
 
     //去注册
     private fun toRegister() {
-        val intent = Intent(this,RegisterActivity::class.java)
-        startActivity(intent)
+        startActivity(intentFor<RegisterActivity>())
     }
 
     //登录逻辑
@@ -69,18 +70,20 @@ class LoginActivity : BaseActivity() {
             user.username= name
             user.setPassword(pass)
 
-            user.login(object :SaveListener<User>(){
-                override fun done(p0: User?, p1: BmobException?) {
-                    if(p1 == null){
-                        SpUtils.putString(applicationContext,SpUtils.name,name)
-                        SpUtils.putString(applicationContext,SpUtils.passWord,pass)
-                        sendMessage(Constant.loginSuccess)
-                    }else{
-                        sendMessage(Constant.loginFail)
+            doAsync {
+                user.login(object :SaveListener<User>(){
+                    override fun done(p0: User?, p1: BmobException?) {
+                        if(p1 == null){
+                            SpUtils.putString(applicationContext,SpUtils.name,name)
+                            SpUtils.putString(applicationContext,SpUtils.passWord,pass)
+                            sendMessage(Constant.loginSuccess)
+                        }else{
+                            sendMessage(Constant.loginFail)
+                        }
                     }
-                }
 
-            })
+                })
+            }
 
         }
 
@@ -90,8 +93,7 @@ class LoginActivity : BaseActivity() {
         super.msgManagement(message)
         when(message){
             Constant.loginSuccess ->{
-                val intent = Intent(this,MainActivity ::class.java)
-                startActivity(intent)
+                startActivity(intentFor<MainActivity>())
                 finish()
             }
             Constant.loginFail ->{

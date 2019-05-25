@@ -8,6 +8,7 @@ import com.wsg.kotlin.R
 import com.wsg.kotlin.Util.Constant
 import com.wsg.kotlin.Util.sendMessageDelayed
 import com.wsg.kotlin.base.BaseActivity
+import org.jetbrains.anko.intentFor
 
 
 /*
@@ -34,8 +35,7 @@ class SplashActivity : BaseActivity() {
     override fun msgManagement(message: Int) {
         super.msgManagement(message)
         if(Constant.splash == 0){
-            val i = Intent(this,LoginActivity::class.java)
-            startActivity(i)
+            startActivity(intentFor<LoginActivity>())
             finish()
         }
 

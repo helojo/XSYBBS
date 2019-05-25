@@ -14,13 +14,18 @@ class Constant{
 
     //静态常量都写这里
     companion object {
-        val bmobId : String = "d75fd81605930a92978ef61077e61aee"
+        val bmobId : String = "0734d2ed157a2b96765451adac7c29db"
 
         val splash : Int = 0
         val registerSucess = 1
         val registerFail = 2
         val loginSuccess = 3
         val loginFail = 4
+        val postSuccess = 5
+        val postFail = 6
+        val searchSuccess = 7
+        val searchSuccessNoData = 8
+        val searchFail = 9
     }
 }
  

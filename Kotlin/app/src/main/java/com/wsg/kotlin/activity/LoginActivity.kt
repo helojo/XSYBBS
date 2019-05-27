@@ -1,6 +1,5 @@
 package com.wsg.kotlin.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -18,6 +17,7 @@ import com.wsg.kotlin.base.BaseActivity
 import com.wsg.kotlin.bean.User
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.progressDialog
 
 
 /*
@@ -66,6 +66,7 @@ class LoginActivity : BaseActivity() {
         if(TextUtils.isEmpty(name) || TextUtils.isEmpty(pass)){
             toast(getString(R.string.textnotnull))
         }else {
+            progressDialog("请稍候...", "登录中")
             user = User()
             user.username= name
             user.setPassword(pass)

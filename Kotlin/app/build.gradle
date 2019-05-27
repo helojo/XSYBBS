@@ -53,10 +53,14 @@ dependencies {
     //圆形头像
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     //anko 协程
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
     implementation "org.jetbrains.anko:anko:$anko_version"
     //首页banner轮播图
     implementation 'com.youth.banner:banner:1.4.10'
     //glide
     implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //MultiType 多类型 recyclerview  提升开发效率
+    implementation 'me.drakeet.multitype:multitype:4.0.0-alpha3'
+    implementation project(path: ':easeui')
 
 }

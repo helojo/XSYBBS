@@ -5,12 +5,12 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
+import com.hyphenate.chat.EMClient
 import com.wsg.kotlin.R
 import com.wsg.kotlin.Util.Constant
+import com.wsg.kotlin.Util.SpUtils
 import com.wsg.kotlin.Util.sendMessage
 import com.wsg.kotlin.Util.toast
 import com.wsg.kotlin.base.BaseActivity
@@ -76,9 +76,9 @@ class RegisterActivity : BaseActivity(){
                     user.signUp(object :SaveListener<User>(){
                         override fun done(p0: User?, p1: BmobException?) {
                             if(p1 == null){
-                                sendMessage(Constant.registerSucess)
+                                regresterChat(user.getUsername(),user.getObjectId(),userName,pass);
                             }else{
-                                sendMessage(Constant.registerSucess)
+                                sendMessage(Constant.registerFail)
                             }
                         }
                     })
@@ -86,6 +86,13 @@ class RegisterActivity : BaseActivity(){
 
             }
         }
+    }
+
+    private fun regresterChat(username: String?, objectId: String?, userName: String, pass: String) {
+        EMClient.getInstance().createAccount(username, objectId);//同步方法
+        SpUtils.putString(this,SpUtils.userName,userName)
+        SpUtils.putString(this,SpUtils.passWord,pass)
+        sendMessage(Constant.registerSucess)
     }
 
     override fun msgManagement(message: Int) {

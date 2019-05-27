@@ -1,9 +1,8 @@
 package com.wsg.kotlin.fragment
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+
+import com.hyphenate.easeui.ui.EaseContactListFragment
+import com.wsg.kotlin.R
 import com.wsg.kotlin.base.BaseFragment
 
 
@@ -16,8 +15,16 @@ import com.wsg.kotlin.base.BaseFragment
  *  描述:     我的好友
  */
 
-class FriendFragment : BaseFragment(){
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+class FriendFragment : EaseContactListFragment(){
+
+    override fun initView() {
+        super.initView()
+        query.isEnabled = false
+
+    }
+
+    override fun setUpView() {
+        super.setUpView()
+
     }
 }

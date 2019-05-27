@@ -26,6 +26,8 @@ class Constant{
         val searchSuccess = 7
         val searchSuccessNoData = 8
         val searchFail = 9
+        val feedbackSuccess = 10
+        val feedbackFail = 11
     }
 }
  

@@ -2,6 +2,8 @@ package com.wsg.kotlin.application
 
 import android.app.Application
 import cn.bmob.v3.Bmob
+import com.hyphenate.chat.EMOptions
+import com.hyphenate.easeui.EaseUI
 import com.wsg.kotlin.Util.Constant
 
 
@@ -19,5 +21,9 @@ class MyApplication :Application(){
     override fun onCreate() {
         super.onCreate()
         Bmob.initialize(this,Constant.bmobId)
+        //初始化环信
+        val options = EMOptions()
+        options.setAcceptInvitationAlways(true)
+        EaseUI.getInstance().init(this,options)
     }
 }

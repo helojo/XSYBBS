@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.hyphenate.easeui.ui.EaseConversationListFragment
 import com.wsg.kotlin.base.BaseFragment
 
 
@@ -16,8 +17,15 @@ import com.wsg.kotlin.base.BaseFragment
  *  描述:     我的消息
  */
 
-class MyMessageFragment  : BaseFragment(){
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+class MyMessageFragment  : EaseConversationListFragment(){
+
+    override fun initView() {
+        super.initView()
+        query.isEnabled = false
+        initData()
+    }
+
+    private fun initData() {
+
     }
 }

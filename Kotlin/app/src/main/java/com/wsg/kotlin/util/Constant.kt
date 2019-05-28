@@ -1,4 +1,4 @@
-package com.wsg.kotlin.Util
+package com.wsg.kotlin.util
 
 
 /*
@@ -28,6 +28,8 @@ class Constant{
         val searchFail = 9
         val feedbackSuccess = 10
         val feedbackFail = 11
+        val modifyPasswordSuccess = 12
+        val modidyPasswordFail = 13
     }
 }
  

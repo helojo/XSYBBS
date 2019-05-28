@@ -15,8 +15,8 @@ import com.wsg.kotlin.bean.User
 import cn.bmob.v3.BmobUser
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
-import com.wsg.kotlin.Util.Constant
-import com.wsg.kotlin.Util.sendMessage
+import com.wsg.kotlin.util.Constant
+import com.wsg.kotlin.util.sendMessage
 import org.jetbrains.anko.doAsync
 
 

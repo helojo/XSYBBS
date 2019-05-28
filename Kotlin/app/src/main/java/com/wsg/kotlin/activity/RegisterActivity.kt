@@ -9,10 +9,10 @@ import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
 import com.hyphenate.chat.EMClient
 import com.wsg.kotlin.R
-import com.wsg.kotlin.Util.Constant
-import com.wsg.kotlin.Util.SpUtils
-import com.wsg.kotlin.Util.sendMessage
-import com.wsg.kotlin.Util.toast
+import com.wsg.kotlin.util.Constant
+import com.wsg.kotlin.util.SpUtils
+import com.wsg.kotlin.util.sendMessage
+import com.wsg.kotlin.util.toast
 import com.wsg.kotlin.base.BaseActivity
 import com.wsg.kotlin.bean.User
 import org.jetbrains.anko.doAsync

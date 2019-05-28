@@ -1,4 +1,4 @@
-package com.wsg.kotlin.Util;
+package com.wsg.kotlin.util;
 
 /*
  *  项目名:  Kotlin

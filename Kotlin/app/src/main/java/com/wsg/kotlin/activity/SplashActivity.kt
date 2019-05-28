@@ -1,12 +1,10 @@
 package com.wsg.kotlin.activity
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import com.wsg.kotlin.R
-import com.wsg.kotlin.Util.Constant
-import com.wsg.kotlin.Util.sendMessageDelayed
+import com.wsg.kotlin.util.Constant
+import com.wsg.kotlin.util.sendMessageDelayed
 import com.wsg.kotlin.base.BaseActivity
 import org.jetbrains.anko.intentFor
 

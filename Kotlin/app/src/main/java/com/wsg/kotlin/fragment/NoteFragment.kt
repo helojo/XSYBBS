@@ -1,6 +1,5 @@
 package com.wsg.kotlin.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.RecyclerView
@@ -13,7 +12,7 @@ import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
 import com.wsg.kotlin.R
-import com.wsg.kotlin.Util.toast
+import com.wsg.kotlin.util.toast
 import com.wsg.kotlin.activity.AddNoteActivity
 import com.wsg.kotlin.activity.SearchNoteActivity
 import com.wsg.kotlin.adapter.GlideImageLoader

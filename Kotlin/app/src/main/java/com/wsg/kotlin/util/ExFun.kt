@@ -1,4 +1,4 @@
-package com.wsg.kotlin.Util
+package com.wsg.kotlin.util
 
 import android.widget.Toast
 import com.wsg.kotlin.base.BaseActivity

@@ -1,11 +1,13 @@
 package com.wsg.kotlin.fragment
 
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hyphenate.easeui.ui.EaseConversationListFragment
 import com.wsg.kotlin.base.BaseFragment
+import java.lang.Exception
 
 
 /*
@@ -19,6 +21,8 @@ import com.wsg.kotlin.base.BaseFragment
 
 class MyMessageFragment  : EaseConversationListFragment(){
 
+    private lateinit var myTask: MyTask
+
     override fun initView() {
         super.initView()
         query.isEnabled = false
@@ -26,6 +30,31 @@ class MyMessageFragment  : EaseConversationListFragment(){
     }
 
     private fun initData() {
-
+        myTask = MyTask()
+        myTask.execute()
     }
+
+
+    class MyTask : AsyncTask<Any,Any,Any>(){
+        override fun doInBackground(vararg params: Any?){
+            val timeInterval = 10000
+            while (true){
+                //todo
+                //conversationListView.refresh();
+                try {
+                    Thread.sleep(timeInterval.toLong())
+                }catch (e : Exception){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        if(myTask != null && myTask.status != AsyncTask.Status.FINISHED){
+            myTask.cancel(true)
+        }
+        super.onDestroy()
+    }
+
 }

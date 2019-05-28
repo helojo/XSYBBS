@@ -4,7 +4,7 @@ import android.app.Application
 import cn.bmob.v3.Bmob
 import com.hyphenate.chat.EMOptions
 import com.hyphenate.easeui.EaseUI
-import com.wsg.kotlin.Util.Constant
+import com.wsg.kotlin.util.Constant
 
 
 /*

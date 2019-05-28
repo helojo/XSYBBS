@@ -6,8 +6,8 @@ import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
 import com.wsg.kotlin.R
-import com.wsg.kotlin.Util.Constant
-import com.wsg.kotlin.Util.sendMessage
+import com.wsg.kotlin.util.Constant
+import com.wsg.kotlin.util.sendMessage
 import com.wsg.kotlin.base.BaseActivity
 import com.wsg.kotlin.bean.Note
 import kotlinx.android.synthetic.main.activity_searchnote.*

@@ -2,8 +2,6 @@ package com.wsg.kotlin.activity
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.widget.Button
-import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.wsg.kotlin.R
@@ -17,6 +15,7 @@ import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
 import com.wsg.kotlin.util.Constant
 import com.wsg.kotlin.util.sendMessage
+import kotlinx.android.synthetic.main.activity_addnote.*
 import org.jetbrains.anko.doAsync
 
 
@@ -31,10 +30,6 @@ import org.jetbrains.anko.doAsync
 
 class AddNoteActivity :BaseActivity() {
 
-    private lateinit var etNewTitle : EditText
-    private lateinit var etNewcontent : EditText
-    private lateinit var radioGroup : RadioGroup
-    private lateinit var btPost : Button
     private lateinit var type: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,10 +39,7 @@ class AddNoteActivity :BaseActivity() {
     }
 
     private fun initView() {
-        etNewTitle = find(R.id.newnote_title)
-        etNewcontent = find(R.id.newnote_content)
-        radioGroup = find(R.id.radioGroup)
-        btPost = find(R.id.newnote_post)
+
 
         type = "吐槽"
 
@@ -58,12 +50,12 @@ class AddNoteActivity :BaseActivity() {
             }
         })
 
-        btPost.setOnClickListener { newNote() }
+        newnote_post.setOnClickListener { newNote() }
     }
 
     private fun newNote() {
-        var title = etNewTitle.text.toString().trim()
-        var content = etNewcontent.text.toString()
+        var title = newnote_title.text.toString().trim()
+        var content = newnote_content.text.toString()
         if(TextUtils.isEmpty(title) || TextUtils.isEmpty(content)){
             toast("亲，输入框不能为空，请重新输入")
         }else{

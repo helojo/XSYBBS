@@ -36,7 +36,5 @@ class SplashActivity : BaseActivity() {
             startActivity(intentFor<LoginActivity>())
             finish()
         }
-
     }
-
 }

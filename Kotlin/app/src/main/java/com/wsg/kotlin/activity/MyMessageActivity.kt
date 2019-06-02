@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.wsg.kotlin.R
 import com.wsg.kotlin.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_mymessage.*
+import org.jetbrains.anko.intentFor
 
 
 /*
@@ -19,7 +20,7 @@ class MyMessageActivity : BaseActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mymessage)
-        rl_zan.setOnClickListener {  }
-        rl_comment.setOnClickListener {  }
+        rl_zan.setOnClickListener       { startActivity(intentFor<MyMessageZanActivity>()) }
+        rl_comment.setOnClickListener   { startActivity(intentFor<MyMessageCommentActivity>()) }
     }
 }

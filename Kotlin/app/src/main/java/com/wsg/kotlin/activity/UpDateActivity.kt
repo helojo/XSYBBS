@@ -4,6 +4,7 @@ import android.os.Bundle
 import cn.bmob.v3.update.BmobUpdateAgent
 import com.wsg.kotlin.R
 import com.wsg.kotlin.base.BaseActivity
+import com.wsg.kotlin.util.UtilToos
 import com.wsg.kotlin.util.toast
 import kotlinx.android.synthetic.main.activity_update.*
 
@@ -20,6 +21,7 @@ class UpDateActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update)
+        update_tv.setText("目前版本 ：" + UtilToos.getVersion(this))
         update_bt.setOnClickListener {
             //检查更新
             BmobUpdateAgent.setUpdateOnlyWifi(false);

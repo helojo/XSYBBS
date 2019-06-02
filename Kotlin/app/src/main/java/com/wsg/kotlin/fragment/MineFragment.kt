@@ -25,7 +25,7 @@ import org.jetbrains.anko.support.v4.intentFor
  *  描述:     个人中心
  */
 
-class MineFragment : BaseFragment(), View.OnClickListener {
+class MineFragment : BaseFragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_mine, null)
@@ -34,22 +34,16 @@ class MineFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun initView(view: View) {
-        profile_image.setOnClickListener(this)
-        edit_user.setOnClickListener(this)
-        tv_sell.setOnClickListener(this)
-        tv_message.setOnClickListener(this)
-        tv_modify.setOnClickListener(this)
-        tv_back.setOnClickListener(this)
-        tv_about.setOnClickListener(this)
-        tv_update.setOnClickListener(this)
-        tv_sign_out.setOnClickListener(this)
-        tv_exit_system.setOnClickListener(this)
-
-        val user = BmobUser.getCurrentUser()
-        et_name.setText(user.username)
-        et_age.setText("20")
-        et_sex.setText("男")
-        et_desc.setText("这个人很懒，什么都没留下")
+        profile_image.setOnClickListener  { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
+        edit_user.setOnClickListener      { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
+        tv_sell.setOnClickListener        { startActivity(intentFor<MyNoteActivity>()) }
+        tv_message.setOnClickListener     { startActivity(intentFor<MyMessageActivity>()) }
+        tv_modify.setOnClickListener      { startActivity(intentFor<ModifyPasswordActivity>()) }
+        tv_back.setOnClickListener        { startActivity(intentFor<FeedBackActivity>()) }
+        tv_about.setOnClickListener       { startActivity(intentFor<AboutActivity>()) }
+        tv_update.setOnClickListener      { startActivity(intentFor<UpDateActivity>()) }
+        tv_sign_out.setOnClickListener    { logout() }
+        tv_exit_system.setOnClickListener { System.exit(0) }
     }
     //修改资料页面跳转过来 ->
     override fun onResume() {
@@ -59,21 +53,6 @@ class MineFragment : BaseFragment(), View.OnClickListener {
         et_age.setText("20")
         et_sex.setText("男")
         et_desc.setText("这个人很懒，什么都没留下")
-    }
-
-    override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.profile_image ,
-            R.id.edit_user ->      { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
-            R.id.tv_sell ->        { startActivity(intentFor<MyNoteActivity>()) }
-            R.id.tv_message ->     { startActivity(intentFor<MyMessageActivity>()) }
-            R.id.tv_modify ->      { startActivity(intentFor<ModifyPasswordActivity>()) }
-            R.id.tv_back ->        { startActivity(intentFor<FeedBackActivity>()) }
-            R.id.tv_about ->       { startActivity(intentFor<AboutActivity>()) }
-            R.id.tv_update ->      { startActivity(intentFor<UpDateActivity>()) }
-            R.id.tv_sign_out ->    { logout() }
-            R.id.tv_exit_system -> { System.exit(0) }
-        }
     }
 
     private fun logout() {

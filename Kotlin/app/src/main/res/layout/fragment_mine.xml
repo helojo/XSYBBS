@@ -12,7 +12,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@mipmap/splash_bg"
+                android:background="@drawable/splash_bg"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -20,7 +20,7 @@
                     android:id="@+id/profile_image"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
-                    android:src="@mipmap/logo"
+                    android:src="@drawable/logo"
                     app:civ_border_color="@color/colorPrimary"
                     app:civ_border_width="2dp" />
 

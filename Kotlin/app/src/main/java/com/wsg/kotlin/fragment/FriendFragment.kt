@@ -53,7 +53,6 @@ class FriendFragment : EaseContactListFragment(){
             //刷新页面
             contactsMap.remove(easeUser.getUsername());
             refresh();
-
         }catch (e : Exception){
             e.printStackTrace()
             toast("好友删除失败，请检查网络")

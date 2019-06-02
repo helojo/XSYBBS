@@ -54,7 +54,8 @@
         <activity android:name=".activity.MyMessageActivity" android:label="@string/my_message"></activity>
         <activity android:name=".activity.ModifyPersionalInformationActivity"  android:label="@string/edit_information"></activity>
         <activity android:name=".activity.MyNoteActivity" android:label="@string/text_mynote"></activity>
-
+        <activity android:name=".activity.MyMessageZanActivity" android:label="@string/text_my_zan"></activity>
+        <activity android:name=".activity.MyMessageCommentActivity" android:label="@string/text_my_me"></activity>
 
 
 

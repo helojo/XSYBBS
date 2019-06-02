@@ -3,10 +3,10 @@ package com.wsg.kotlin.activity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
+import com.hyphenate.EMCallBack
+import com.hyphenate.chat.EMClient
 import com.wsg.kotlin.MainActivity
 import com.wsg.kotlin.R
 import com.wsg.kotlin.util.Constant
@@ -15,6 +15,7 @@ import com.wsg.kotlin.util.sendMessage
 import com.wsg.kotlin.util.toast
 import com.wsg.kotlin.base.BaseActivity
 import com.wsg.kotlin.bean.User
+import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.progressDialog
@@ -31,12 +32,6 @@ import org.jetbrains.anko.progressDialog
 
 class LoginActivity : BaseActivity() {
 
-    lateinit var etName : EditText
-    lateinit var etPassword : EditText
-    lateinit var btLogin : Button
-    lateinit var btRegister : Button
-    lateinit var user: User
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -44,30 +39,19 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun initView() {
-        etName = findViewById(R.id.et_name)
-        etPassword = findViewById(R.id.et_password)
-        btLogin = findViewById(R.id.bt_login)
-        btRegister = findViewById(R.id.bt_registered)
-
-        btLogin.setOnClickListener(View.OnClickListener { toLogin() })
-        btRegister.setOnClickListener(View.OnClickListener { toRegister() })
-    }
-
-    //去注册
-    private fun toRegister() {
-        startActivity(intentFor<RegisterActivity>())
+        bt_login.setOnClickListener        { toLogin() }
+        bt_registered.setOnClickListener   {  startActivity(intentFor<RegisterActivity>()) }
     }
 
     //登录逻辑
     private fun toLogin() {
-        val name = etName.text.toString()
-        val pass = etPassword.text.toString()
+        val name = et_name.text.toString()
+        val pass = et_password.text.toString()
 
         if(TextUtils.isEmpty(name) || TextUtils.isEmpty(pass)){
             toast(getString(R.string.textnotnull))
         }else {
-            progressDialog("请稍候...", "登录中")
-            user = User()
+            var user = User()
             user.username= name
             user.setPassword(pass)
 
@@ -75,14 +59,25 @@ class LoginActivity : BaseActivity() {
                 user.login(object :SaveListener<User>(){
                     override fun done(p0: User?, p1: BmobException?) {
                         if(p1 == null){
-                            SpUtils.putString(applicationContext,SpUtils.name,name)
-                            SpUtils.putString(applicationContext,SpUtils.passWord,pass)
-                            sendMessage(Constant.loginSuccess)
+                            EMClient.getInstance().login(name,p0!!.objectId,object : EMCallBack{
+                                override fun onSuccess() {
+                                    EMClient.getInstance().groupManager().loadAllGroups();
+                                    EMClient.getInstance().chatManager().loadAllConversations();
+                                    SpUtils.putString(applicationContext,SpUtils.name,name)
+                                    SpUtils.putString(applicationContext,SpUtils.passWord,pass)
+                                    sendMessage(Constant.loginSuccess)
+                                }
+
+                                override fun onProgress(progress: Int, status: String?) {}
+
+                                override fun onError(code: Int, error: String?) {
+                                    sendMessage(Constant.loginFail)
+                                }
+                            })
                         }else{
                             sendMessage(Constant.loginFail)
                         }
                     }
-
                 })
             }
 

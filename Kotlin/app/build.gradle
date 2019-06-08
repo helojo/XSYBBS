@@ -10,8 +10,9 @@ android {
         applicationId "com.wsg.kotlin"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        // kotlin 版本为1.2 在bugly 上和java版本分开
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -62,5 +63,8 @@ dependencies {
     //MultiType 多类型 recyclerview  提升开发效率
     implementation 'me.drakeet.multitype:multitype:4.0.0-alpha3'
     implementation project(path: ':easeui')
+    //bugly
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
 
 }

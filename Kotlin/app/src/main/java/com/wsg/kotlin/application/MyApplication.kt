@@ -4,6 +4,7 @@ import android.app.Application
 import cn.bmob.v3.Bmob
 import com.hyphenate.chat.EMOptions
 import com.hyphenate.easeui.EaseUI
+import com.tencent.bugly.crashreport.CrashReport
 import com.wsg.kotlin.util.Constant
 
 
@@ -20,6 +21,7 @@ class MyApplication :Application(){
     
     override fun onCreate() {
         super.onCreate()
+        CrashReport.initCrashReport(getApplicationContext(), Constant.buglyId, false);
         Bmob.initialize(this,Constant.bmobId)
         //初始化环信
         val options = EMOptions()

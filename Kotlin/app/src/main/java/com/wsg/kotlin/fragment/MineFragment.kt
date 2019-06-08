@@ -4,15 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
 import cn.bmob.v3.BmobUser
 import com.hyphenate.chat.EMClient
 import com.wsg.kotlin.R
 import com.wsg.kotlin.activity.*
 import com.wsg.kotlin.base.BaseFragment
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_modify_information.*
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.fragment_mine.*
-import kotlinx.android.synthetic.main.fragment_mine.profile_image
+import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.intentFor
 
 
@@ -33,26 +34,26 @@ class MineFragment : BaseFragment(){
         return view
     }
 
-    private fun initView(view: View) {
-        profile_image.setOnClickListener  { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
-        edit_user.setOnClickListener      { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
-        tv_sell.setOnClickListener        { startActivity(intentFor<MyNoteActivity>()) }
-        tv_message.setOnClickListener     { startActivity(intentFor<MyMessageActivity>()) }
-        tv_modify.setOnClickListener      { startActivity(intentFor<ModifyPasswordActivity>()) }
-        tv_back.setOnClickListener        { startActivity(intentFor<FeedBackActivity>()) }
-        tv_about.setOnClickListener       { startActivity(intentFor<AboutActivity>()) }
-        tv_update.setOnClickListener      { startActivity(intentFor<UpDateActivity>()) }
-        tv_sign_out.setOnClickListener    { logout() }
-        tv_exit_system.setOnClickListener { System.exit(0) }
+    private fun initView(view: View?) {
+        view!!.find<CircleImageView>(R.id.profile_image).setOnClickListener  { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
+        view!!.find<TextView>(R.id.edit_user).setOnClickListener             { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
+        view!!.find<TextView>(R.id.tv_sell).setOnClickListener               { startActivity(intentFor<MyNoteActivity>()) }
+        view!!.find<TextView>(R.id.tv_message).setOnClickListener            { startActivity(intentFor<MyMessageActivity>()) }
+        view!!.find<TextView>(R.id.tv_modify).setOnClickListener             { startActivity(intentFor<ModifyPasswordActivity>()) }
+        view!!.find<TextView>(R.id.tv_back).setOnClickListener               { startActivity(intentFor<FeedBackActivity>()) }
+        view!!.find<TextView>(R.id.tv_about).setOnClickListener              { startActivity(intentFor<AboutActivity>()) }
+        view!!.find<TextView>(R.id.tv_update).setOnClickListener             { startActivity(intentFor<UpDateActivity>()) }
+        view!!.find<TextView>(R.id.tv_sign_out).setOnClickListener           { logout() }
+        view!!.find<TextView>(R.id.tv_exit_system).setOnClickListener        { System.exit(0) }
     }
     //修改资料页面跳转过来 ->
     override fun onResume() {
         super.onResume()
-        val user = BmobUser.getCurrentUser()
-        et_name.setText(user.username)
-        et_age.setText("20")
-        et_sex.setText("男")
-        et_desc.setText("这个人很懒，什么都没留下")
+//        val user = BmobUser.getCurrentUser()
+//        tv_username.setText(user.username)
+//        tv_sex.setText("20")
+//        tv_age.setText("男")
+//        tv_desc.setText("这个人很懒，什么都没留下")
     }
 
     private fun logout() {

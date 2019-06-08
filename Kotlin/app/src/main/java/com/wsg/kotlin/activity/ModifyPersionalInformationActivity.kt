@@ -8,6 +8,7 @@ import cn.bmob.v3.listener.UpdateListener
 import com.wsg.kotlin.R
 import com.wsg.kotlin.base.BaseActivity
 import com.wsg.kotlin.bean.User
+import com.wsg.kotlin.util.L
 import com.wsg.kotlin.util.toast
 import kotlinx.android.synthetic.main.activity_modify_information.*
 import org.jetbrains.anko.doAsync
@@ -25,7 +26,7 @@ import org.jetbrains.anko.uiThread
 
 class ModifyPersionalInformationActivity : BaseActivity() {
 
-    private lateinit var user : User
+    private lateinit var user : BmobUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_modify_information)
@@ -33,7 +34,7 @@ class ModifyPersionalInformationActivity : BaseActivity() {
     }
 
     private fun initView() {
-        user = BmobUser.getCurrentUser() as User
+        user = BmobUser.getCurrentUser()
         et_username.setText(user.username)
         et_sex.setText("男")
         et_age.setText("20")
@@ -48,9 +49,12 @@ class ModifyPersionalInformationActivity : BaseActivity() {
             doAsync {
                 user.update(user.objectId,object : UpdateListener(){
                     override fun done(p0: BmobException?) {
-                       if(p0 != null){
+                       if(p0 !== null){
                            uiThread { toast("修改成功");finish() }
                        }else{
+                           L.d(p0!!.toString())
+                           L.d(p0!!.cause.toString())
+                           L.d(p0!!.errorCode.toString())
                            uiThread { toast("修改失败，请检查网络") }
                        }
                     }

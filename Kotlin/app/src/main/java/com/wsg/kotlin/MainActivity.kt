@@ -27,10 +27,13 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     //fragment
     private lateinit var noteFragment: NoteFragment
     private lateinit var friendFragment: FriendFragment
-    fun isInit() = ::friendFragment.isInitialized
     private lateinit var myMessageFragment: MyMessageFragment
     private lateinit var mineFragment: MineFragment
     private lateinit var fm: androidx.fragment.app.FragmentManager
+
+    fun isFriendInit() = ::friendFragment.isInitialized
+    fun isMessageInit() = ::myMessageFragment.isInitialized
+    fun isMineInit() = ::mineFragment.isInitialized
 
     private var isFirst = true
     private var lastTime: Long = 0
@@ -61,10 +64,16 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                home_image_view.setBackgroundResource(R.drawable.note_pressed)
                fish_image_view.setBackgroundResource(R.drawable.friends)
                message_image_view.setBackgroundResource(R.drawable.message)
-               mine_layout_view.setBackgroundResource(R.drawable.mine)
-               hideFragment(friendFragment,fmt)
-               hideFragment(myMessageFragment,fmt)
-               hideFragment(mineFragment,fmt)
+               mine_image_view.setBackgroundResource(R.drawable.mine)
+               if (isFriendInit()){
+                   hideFragment(friendFragment,fmt)
+               }
+               if(isMessageInit()){
+                   hideFragment(myMessageFragment,fmt)
+               }
+               if(isMineInit()){
+                   hideFragment(mineFragment,fmt)
+               }
                if(noteFragment == null){
                    noteFragment = NoteFragment()
                    fmt.add(R.id.content_layout,noteFragment)
@@ -76,11 +85,15 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                home_image_view.setBackgroundResource(R.drawable.note)
                fish_image_view.setBackgroundResource(R.drawable.friends_pressed)
                message_image_view.setBackgroundResource(R.drawable.message)
-               mine_layout_view.setBackgroundResource(R.drawable.mine)
+               mine_image_view.setBackgroundResource(R.drawable.mine)
                hideFragment(noteFragment,fmt)
-               hideFragment(myMessageFragment,fmt)
-               hideFragment(mineFragment,fmt)
-               if(friendFragment == null){
+               if(isMessageInit()){
+                   hideFragment(myMessageFragment,fmt)
+               }
+               if(isMineInit()){
+                   hideFragment(mineFragment,fmt)
+               }
+               if(!isFriendInit()){
                    friendFragment = FriendFragment()
                    doAsync {
                        friendFragment.setContactsMap(getContact());
@@ -96,12 +109,15 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                home_image_view.setBackgroundResource(R.drawable.note)
                fish_image_view.setBackgroundResource(R.drawable.friends)
                message_image_view.setBackgroundResource(R.drawable.message_pressed)
-               mine_layout_view.setBackgroundResource(R.drawable.mine)
+               mine_image_view.setBackgroundResource(R.drawable.mine)
                hideFragment(noteFragment,fmt)
-               hideFragment(friendFragment,fmt)
-               hideFragment(mineFragment,fmt)
-
-               if(myMessageFragment == null){
+               if(isFriendInit()){
+                   hideFragment(friendFragment,fmt)
+               }
+               if(isMineInit()){
+                   hideFragment(mineFragment,fmt)
+               }
+               if(!isMessageInit()){
                    myMessageFragment = MyMessageFragment()
                    myMessageFragment.setConversationListItemClickListener { conversation ->startActivity(intentFor<ChatActivity>(EaseConstant.EXTRA_USER_ID to conversation.conversationId())) }
                    fmt.add(R.id.content_layout,myMessageFragment)
@@ -113,11 +129,15 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                home_image_view.setBackgroundResource(R.drawable.note)
                fish_image_view.setBackgroundResource(R.drawable.friends)
                message_image_view.setBackgroundResource(R.drawable.message)
-               mine_layout_view.setBackgroundResource(R.drawable.mine_pressed)
+               mine_image_view.setBackgroundResource(R.drawable.mine_pressed)
                hideFragment(noteFragment,fmt)
-               hideFragment(friendFragment,fmt)
-               hideFragment(myMessageFragment,fmt)
-               if(mineFragment == null){
+               if(isFriendInit()){
+                   hideFragment(friendFragment,fmt)
+               }
+               if(isMessageInit()){
+                   hideFragment(myMessageFragment,fmt)
+               }
+               if(!isMineInit()){
                    mineFragment = MineFragment()
                    fmt.add(R.id.content_layout,mineFragment)
                }else{
@@ -147,10 +167,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         懒加载的变量是在没初始化之前是不允许做判空操作的，要先判断是否初始化
         kotlin 真是蛋疼
          */
-
-        if(fragment != null){
-            ft.hide(fragment)
-        }
+        ft.hide(fragment)
     }
 
     override fun onBackPressed() {

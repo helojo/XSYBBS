@@ -17,7 +17,7 @@
                 android:id="@+id/profile_image"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:src="@drawable/wsg_logo"
+                android:src="@drawable/logo"
                 app:civ_border_color="@android:color/white"
                 app:civ_border_width="2dp"/>
 
@@ -111,10 +111,6 @@
 
     </LinearLayout>
 
-
-
-
-
     <RelativeLayout
             android:gravity="center|bottom"
             android:layout_width="match_parent"
@@ -151,15 +147,4 @@
 
 
     </RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-
 </LinearLayout>

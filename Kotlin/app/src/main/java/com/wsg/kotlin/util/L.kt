@@ -14,7 +14,7 @@ import android.util.Log
 
 class L {
     companion object {
-        val tag = "wsg"
+        val tag = "WSG"
         val isDebug = true
 
         fun v(s :String){

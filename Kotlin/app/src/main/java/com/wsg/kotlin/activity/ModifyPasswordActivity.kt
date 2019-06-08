@@ -7,10 +7,7 @@ import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.UpdateListener
 import com.wsg.kotlin.R
 import com.wsg.kotlin.base.BaseActivity
-import com.wsg.kotlin.util.Constant
-import com.wsg.kotlin.util.SpUtils
-import com.wsg.kotlin.util.sendMessage
-import com.wsg.kotlin.util.toast
+import com.wsg.kotlin.util.*
 import kotlinx.android.synthetic.main.activity_modify_password.*
 import org.jetbrains.anko.doAsync
 
@@ -46,6 +43,9 @@ class ModifyPasswordActivity : BaseActivity(){
                                 SpUtils.putString(application,SpUtils.passWord,new)
                                 sendMessage(Constant.modifyPasswordSuccess)
                             }else{
+                                L.d(p0!!.toString())
+                                L.d(p0!!.cause.toString())
+                                L.d(p0!!.errorCode.toString())
                                 sendMessage(Constant.modidyPasswordFail)
                             }
                         }

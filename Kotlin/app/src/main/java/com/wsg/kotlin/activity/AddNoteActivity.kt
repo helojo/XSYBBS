@@ -14,6 +14,7 @@ import cn.bmob.v3.BmobUser
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
 import com.wsg.kotlin.util.Constant
+import com.wsg.kotlin.util.L
 import com.wsg.kotlin.util.sendMessage
 import kotlinx.android.synthetic.main.activity_addnote.*
 import org.jetbrains.anko.doAsync
@@ -68,6 +69,9 @@ class AddNoteActivity :BaseActivity() {
                         if(p1 != null){
                             sendMessage(Constant.postSuccess)
                         }else{
+                            L.d(p1!!.toString())
+                            L.d(p1!!.cause.toString())
+                            L.d(p1!!.errorCode.toString())
                             sendMessage(Constant.postFail)
                         }
                     }

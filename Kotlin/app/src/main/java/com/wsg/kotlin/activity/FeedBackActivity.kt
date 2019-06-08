@@ -11,6 +11,7 @@ import com.wsg.kotlin.util.sendMessage
 import com.wsg.kotlin.util.toast
 import com.wsg.kotlin.base.BaseActivity
 import com.wsg.kotlin.bean.Feedback
+import com.wsg.kotlin.util.L
 import kotlinx.android.synthetic.main.activity_feedback.*
 import org.jetbrains.anko.doAsync
 
@@ -41,6 +42,9 @@ class FeedBackActivity : BaseActivity() {
                         if(p1 != null){
                             sendMessage(Constant.feedbackSuccess)
                         }else{
+                            L.d(p1!!.toString())
+                            L.d(p1!!.cause.toString())
+                            L.d(p1!!.errorCode.toString())
                             sendMessage(Constant.feedbackFail)
                         }
                     }

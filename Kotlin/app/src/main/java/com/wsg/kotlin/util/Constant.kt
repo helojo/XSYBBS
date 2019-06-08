@@ -15,6 +15,7 @@ class Constant{
     //静态常量都写这里
     companion object {
         val bmobId : String = "0734d2ed157a2b96765451adac7c29db"
+        val buglyId : String = "2b218193fd"
 
         val splash : Int = 0
         val registerSucess = 1

@@ -34,17 +34,17 @@ class MineFragment : BaseFragment(){
         return view
     }
 
-    private fun initView(view: View?) {
-        view!!.find<CircleImageView>(R.id.profile_image).setOnClickListener  { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
-        view!!.find<TextView>(R.id.edit_user).setOnClickListener             { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
-        view!!.find<TextView>(R.id.tv_sell).setOnClickListener               { startActivity(intentFor<MyNoteActivity>()) }
-        view!!.find<TextView>(R.id.tv_message).setOnClickListener            { startActivity(intentFor<MyMessageActivity>()) }
-        view!!.find<TextView>(R.id.tv_modify).setOnClickListener             { startActivity(intentFor<ModifyPasswordActivity>()) }
-        view!!.find<TextView>(R.id.tv_back).setOnClickListener               { startActivity(intentFor<FeedBackActivity>()) }
-        view!!.find<TextView>(R.id.tv_about).setOnClickListener              { startActivity(intentFor<AboutActivity>()) }
-        view!!.find<TextView>(R.id.tv_update).setOnClickListener             { startActivity(intentFor<UpDateActivity>()) }
-        view!!.find<TextView>(R.id.tv_sign_out).setOnClickListener           { logout() }
-        view!!.find<TextView>(R.id.tv_exit_system).setOnClickListener        { System.exit(0) }
+    private fun initView(view: View) {
+        view.find<CircleImageView>(R.id.profile_image).setOnClickListener  { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
+        view.find<TextView>(R.id.edit_user).setOnClickListener             { startActivity(intentFor<ModifyPersionalInformationActivity>()) }
+        view.find<TextView>(R.id.tv_sell).setOnClickListener               { startActivity(intentFor<MyNoteActivity>()) }
+        view.find<TextView>(R.id.tv_message).setOnClickListener            { startActivity(intentFor<MyMessageActivity>()) }
+        view.find<TextView>(R.id.tv_modify).setOnClickListener             { startActivity(intentFor<ModifyPasswordActivity>()) }
+        view.find<TextView>(R.id.tv_back).setOnClickListener               { startActivity(intentFor<FeedBackActivity>()) }
+        view.find<TextView>(R.id.tv_about).setOnClickListener              { startActivity(intentFor<AboutActivity>()) }
+        view.find<TextView>(R.id.tv_update).setOnClickListener             { startActivity(intentFor<UpDateActivity>()) }
+        view.find<TextView>(R.id.tv_sign_out).setOnClickListener           { logout() }
+        view.find<TextView>(R.id.tv_exit_system).setOnClickListener        { System.exit(0) }
     }
     //修改资料页面跳转过来 ->
     override fun onResume() {

@@ -39,8 +39,10 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun initView() {
-        bt_login.setOnClickListener        { toLogin() }
+        bt_login.setOnClickListener        {  toLogin() }
         bt_registered.setOnClickListener   {  startActivity(intentFor<RegisterActivity>()) }
+        tv_tourist.setOnClickListener      {  startActivity(intentFor<TouristActivity>()) }
+        tv_forget.setOnClickListener       {  startActivity(intentFor<ForgetPasswordActivity>()) }
     }
 
     //登录逻辑

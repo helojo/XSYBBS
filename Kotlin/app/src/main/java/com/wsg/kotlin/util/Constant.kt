@@ -17,6 +17,11 @@ class Constant{
         val bmobId : String = "0734d2ed157a2b96765451adac7c29db"
         val buglyId : String = "2b218193fd"
 
+        val IMAGEONE = "http://202.200.82.150/u/cms/www/201806/27104449b14a.jpg"
+        val IMAGETWO = "http://202.200.82.150/u/cms/www/201805/16111826e3zf.jpg"
+        val IMAGETHREE = "http://202.200.82.150/u/cms/www/201710/30114208slub.jpg"
+        val IMAGEFOUR = "http://202.200.82.150/u/cms/www/201806/26174701kiz0.png"
+
         val splash : Int = 0
         val registerSucess = 1
         val registerFail = 2
@@ -31,6 +36,10 @@ class Constant{
         val feedbackFail = 11
         val modifyPasswordSuccess = 12
         val modidyPasswordFail = 13
+        val forgetPasswordSuccess = 14
+        val forgetPasswordFail = 15
+        val touristNoteSuccess = 16
+        val touristNoteFail = 17
     }
 }
  

@@ -15,15 +15,16 @@ import org.jetbrains.anko.find
 /*
  *  项目名:  Kotlin
  *  包名:    com.wsg.kotlin.adapter
- *  文件名:   NoteAdapter
+ *  文件名:   TouristNoteAdapter
  *  创建者:   wsg
- *  创建时间: 2019/6/17 15:59
- *  描述:     主页帖子适配器
+ *  创建时间: 2019/6/17 14:28
+ *  描述:     use
  */
 
-class NoteAdapter(var ctx : Context,var list: List<Note>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+class TouristNoteAdapter(var ctx : Context,var list : ArrayList<Note>) : RecyclerView.Adapter<TouristNoteAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-      return ViewHolder(LayoutInflater.from(ctx).inflate( R.layout.item_note,parent,false))
+        return ViewHolder(LayoutInflater.from(ctx).inflate(R.layout.item_tourist_note,parent,false))
     }
 
     override fun getItemCount(): Int {
@@ -35,28 +36,21 @@ class NoteAdapter(var ctx : Context,var list: List<Note>) : RecyclerView.Adapter
         holder.type.text = list.get(position).typeid
         holder.time.text = list.get(position).updatedAt
         holder.content.text = list.get(position).content
-        holder.zanCount.text = list.get(position).zancount.toString()
-        holder.replayCount.text = list.get(position).replaycount.toString()
     }
 
-
-    class ViewHolder :RecyclerView.ViewHolder{
+    class ViewHolder : RecyclerView.ViewHolder{
         val profile : CircleImageView
         val title : TextView
         val type : TextView
         val time : TextView
         val content : TextView
-        val zanCount : TextView
-        val replayCount : TextView
 
-        constructor(itemView: View) : super(itemView){
-            profile = itemView.find(R.id.item_note_profile)
-            title = itemView.find(R.id.item_note_title)
-            type = itemView.find(R.id.item_note_type)
-            time = itemView.find(R.id.item_note_time)
-            content = itemView.find(R.id.item_note_content)
-            zanCount = itemView.find(R.id.item_note_zancount)
-            replayCount = itemView.find(R.id.item_note_replaycount)
+        constructor(itemView: View) : super(itemView) {
+            profile = itemView.find(R.id.item_tl_note_profile)
+            title = itemView.find(R.id.item_tl_note_title)
+            type = itemView.find(R.id.item_tl_note_type)
+            time = itemView.find(R.id.item_tl_note_time)
+            content = itemView.find(R.id.item_tl_note_content)
         }
     }
 }

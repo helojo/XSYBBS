@@ -10,5 +10,19 @@ package com.wsg.kotlin.util;
  */
 
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.QueryListener;
+import com.wsg.kotlin.bean.User;
+
 public class Test {
+    public void getUser(String id){
+        BmobQuery q = new BmobQuery<User>();
+        q.getObject(id, new QueryListener() {
+            @Override
+            public void done(Object o, BmobException e) {
+
+            }
+        });
+    }
 }

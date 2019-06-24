@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.wsg.kotlin.R
+import com.wsg.kotlin.activity.NoteDetailActivity
 import com.wsg.kotlin.bean.Note
 import de.hdodenhof.circleimageview.CircleImageView
 import org.jetbrains.anko.find
+import org.jetbrains.anko.intentFor
 
 
 /*
@@ -37,6 +39,10 @@ class NoteAdapter(var ctx : Context,var list: List<Note>) : RecyclerView.Adapter
         holder.content.text = list.get(position).content
         holder.zanCount.text = list.get(position).zancount.toString()
         holder.replayCount.text = list.get(position).replaycount.toString()
+
+        holder.itemView.setOnClickListener {
+            ctx.startActivity(ctx.intentFor<NoteDetailActivity>("note" to list.get(position)))
+        }
     }
 
 

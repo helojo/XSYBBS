@@ -64,6 +64,9 @@
         <activity android:name=".activity.ChatActivity"></activity>
         <activity android:name=".activity.TouristActivity" android:label="tourist_login"></activity>
         <activity android:name=".activity.ForgetPasswordActivity" android:label="@string/forget_password"></activity>
+        <activity android:name=".activity.PersionalDealActivity" android:label="@string/persional_detail"></activity>
+        <activity android:name=".activity.ModifyNoteActivity" android:label="@string/text_modify_my_note"></activity>
+        <activity android:name=".activity.NoteDetailActivity"></activity>
 
 
         <!-- 设置环信应用的AppKey -->

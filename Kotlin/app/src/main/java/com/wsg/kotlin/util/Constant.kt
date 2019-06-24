@@ -40,6 +40,8 @@ class Constant{
         val forgetPasswordFail = 15
         val touristNoteSuccess = 16
         val touristNoteFail = 17
+        val persionNoteSuccess = 18
+        val persionNoteFail = 19
     }
 }
  

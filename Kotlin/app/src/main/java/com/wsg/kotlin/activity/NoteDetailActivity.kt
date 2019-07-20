@@ -39,5 +39,6 @@ class NoteDetailActivity : BaseActivity(){
         note_detail_profile.setOnClickListener    { startActivity(intentFor<PersionalDealActivity>("id" to note.userid)) }
         note_detail_zan.setOnClickListener {  }
         bt_note_detail.setOnClickListener         {  }
+        //todo
     }
 }

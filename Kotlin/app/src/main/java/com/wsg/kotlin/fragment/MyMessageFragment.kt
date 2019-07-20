@@ -35,12 +35,11 @@ class MyMessageFragment  : EaseConversationListFragment(){
     }
 
 
-    class MyTask : AsyncTask<Any,Any,Any>(){
+    internal inner class MyTask : AsyncTask<Any,Any,Any>(){
         override fun doInBackground(vararg params: Any?){
             val timeInterval = 10000
             while (true){
-                //todo
-                //conversationListView.refresh();
+                conversationListView.refresh();
                 try {
                     Thread.sleep(timeInterval.toLong())
                 }catch (e : Exception){

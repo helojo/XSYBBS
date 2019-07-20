@@ -74,18 +74,20 @@ class MyNoteAdapter(var ctx: Context, var list: List<Note>) : BaseAdapter() {
             del = view.find(R.id.item_my_note_delete)
         }
 
-        public fun radar(note: Note) {
+         fun radar(note: Note) {
             title.text = note.title
             type.text = note.typeid
             time.text = note.updatedAt
             content.text = note.content
             modify.setOnClickListener {
                 ctx.startActivity(ctx.intentFor<ModifyNoteActivity>("note" to note))
+                //todo
             }
             del.setOnClickListener {
                 note.delete(object : UpdateListener() {
                     override fun done(p0: BmobException?) {
                         ctx.toast("删除成功")
+                        //todo
                     }
                 })
             }

@@ -32,6 +32,7 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:text="正在加载，请稍等..."
+            android:visibility="gone"
             android:textSize="20sp"
     />
 

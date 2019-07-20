@@ -6,12 +6,14 @@ import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
 import com.wsg.kotlin.R
+import com.wsg.kotlin.adapter.NoteAdapter
 import com.wsg.kotlin.util.Constant
 import com.wsg.kotlin.util.sendMessage
 import com.wsg.kotlin.base.BaseActivity
 import com.wsg.kotlin.bean.Note
 import kotlinx.android.synthetic.main.activity_searchnote.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 
 
 /*
@@ -25,7 +27,6 @@ import org.jetbrains.anko.doAsync
 
 class SearchNoteActivity : BaseActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_searchnote)
@@ -33,6 +34,7 @@ class SearchNoteActivity : BaseActivity() {
     }
 
     private fun searchNote() {
+        tv_searchnote.visibility = View.VISIBLE
         val s = et_searchnote.text.toString()
         val query = BmobQuery<Note>()
         query.addWhereEqualTo("title", s);
@@ -43,7 +45,12 @@ class SearchNoteActivity : BaseActivity() {
                 override fun done(p0: MutableList<Note>?, p1: BmobException?) {
                     if (p1 != null) {
                         if (p0!!.size != 0) {
-                            sendMessage(Constant.searchSuccess)
+                            uiThread {
+                                tv_searchnote.visibility = View.GONE
+                                //初始化数据
+                                val adapter = NoteAdapter(this@SearchNoteActivity,p0)
+                                rv_searchnote.adapter = adapter
+                            }
                         } else {
                             sendMessage(Constant.searchSuccessNoData)
                         }
@@ -59,10 +66,6 @@ class SearchNoteActivity : BaseActivity() {
     override fun msgManagement(message: Int) {
         super.msgManagement(message)
         when (message) {
-            Constant.searchSuccess -> {
-                tv_searchnote.visibility = View.GONE
-                //初始化数据
-            }
             Constant.searchSuccessNoData -> {
                 tv_searchnote.text = "查找成功，暂无此类记录"
             }
